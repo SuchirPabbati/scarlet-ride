@@ -1,0 +1,257 @@
+{
+  "interactionModel": {
+    "dialog": {
+      "intents": [
+        {
+          "slots": [
+            {
+              "name": "Route",
+              "elicitationRequired": true,
+              "validations": [
+                {
+                  "type": "hasEntityResolutionMatch",
+                  "prompt": "Slot.Validation.1263939230363.728183015925.410547129761"
+                }
+              ],
+              "type": "RouteType",
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.1470632125666.785114952240"
+              }
+            },
+            {
+              "name": "Location",
+              "elicitationRequired": true,
+              "validations": [
+                {
+                  "type": "hasEntityResolutionMatch",
+                  "prompt": "Slot.Validation.613401980501.1672559748018.1522371382197"
+                }
+              ],
+              "type": "BusStop",
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.1470632125666.277460497739"
+              }
+            }
+          ],
+          "name": "FindETA",
+          "confirmationRequired": true,
+          "prompts": {
+            "confirmation": "Confirm.Intent.1263939230363"
+          }
+        }
+      ],
+      "delegationStrategy": "ALWAYS"
+    },
+    "languageModel": {
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.FallbackIntent",
+          "samples": []
+        },
+        {
+          "slots": [
+            {
+              "name": "Route",
+              "type": "RouteType",
+              "samples": [
+                "{Route} bus"
+              ]
+            },
+            {
+              "name": "Location",
+              "type": "BusStop",
+              "samples": [
+                "{Location}"
+              ]
+            }
+          ],
+          "name": "FindETA",
+          "samples": [
+            "get the e. t. a. of {Route} bus to {Location}",
+            "what is the eta of {Route} bus",
+            "get the eta of {Route} bus to {Location}"
+          ]
+        }
+      ],
+      "types": [
+        {
+          "values": [
+            {
+              "name": {
+                "synonyms": [
+                  "rex B."
+                ],
+                "value": "REXB"
+              },
+              "id": "REXB"
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "rexall",
+                  "rexcel"
+                ],
+                "value": "REXL"
+              },
+              "id": "REXL"
+            },
+            {
+              "name": {
+                "value": "A"
+              },
+              "id": "A"
+            },
+            {
+              "name": {
+                "value": "EE"
+              },
+              "id": "EE"
+            },
+            {
+              "name": {
+                "value": "H"
+              },
+              "id": "H"
+            },
+            {
+              "name": {
+                "value": "B-He"
+              },
+              "id": "B-He"
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "L. X.",
+                  "Alex",
+                  "alex",
+                  "60",
+                  "l. x.",
+                  "lx."
+                ],
+                "value": "LX"
+              },
+              "id": "LX"
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "B."
+                ],
+                "value": "B"
+              },
+              "id": "B"
+            }
+          ],
+          "name": "RouteType"
+        },
+        {
+          "values": [
+            {
+              "name": {
+                "synonyms": [
+                  "Livingston plaza",
+                  "livingston plaza",
+                  "livingston plaza.",
+                  "plaza.",
+                  "plaza",
+                  "Plaza"
+                ],
+                "value": "Livingston Plaza"
+              }
+            },
+            {
+              "name": {
+                "synonyms": [
+                  "the quads",
+                  "quads.",
+                  "quads"
+                ],
+                "value": "Quads"
+              }
+            }
+          ],
+          "name": "BusStop"
+        }
+      ],
+      "invocationName": "knight ride"
+    },
+    "prompts": [
+      {
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Please specify a bus route stop"
+          },
+          {
+            "type": "PlainText",
+            "value": "Please specify a destination"
+          }
+        ],
+        "id": "Elicit.Slot.1470632125666.277460497739"
+      },
+      {
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Please choose a route"
+          },
+          {
+            "type": "PlainText",
+            "value": "Please choose a bus"
+          },
+          {
+            "type": "PlainText",
+            "value": "Please specify a bus route"
+          }
+        ],
+        "id": "Elicit.Slot.1470632125666.785114952240"
+      },
+      {
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "please say an actual bus stop"
+          }
+        ],
+        "id": "Slot.Validation.613401980501.1672559748018.1522371382197"
+      },
+      {
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "please choose a valid bus route"
+          }
+        ],
+        "id": "Slot.Validation.1263939230363.728183015925.410547129761"
+      },
+      {
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Did you say you want the eta of the {Route} bus to {Location}"
+          }
+        ],
+        "id": "Confirm.Intent.1263939230363"
+      }
+    ]
+  }
+}
